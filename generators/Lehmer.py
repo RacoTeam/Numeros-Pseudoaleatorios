@@ -2,6 +2,9 @@ import sys
 import math
 
 def Lehmer():
+
+    listaNrosAleatorios = []
+    
     print("---------------------------------------------")
     print("-------------- METODO DE LEHMER -------------")
     print("---------------------------------------------")
@@ -28,14 +31,20 @@ def Lehmer():
             kDig = total[0:k]
             ultimos = total[k:len(total)]
             ni = int(ultimos) - int(kDig)
-            concatenar = "0,"+str(ni)
+            concatenar = "0."+str(ni)
+            nroAleatorio = float(concatenar)
+            listaNrosAleatorios.append(nroAleatorio)
             print("-------")
             print("n",i+1, ": ",ni)
             print("u",i+1, ": ",concatenar)
             print("-------")
             semilla = ni
             i = i+1
+
+        return listaNrosAleatorios
             
     except(ValueError):
         print("Tienes un error de tipo: ",sys.exc_info()[0])
         print("Nota: Se debe ingresar un valor de tipo numerico")
+
+Lehmer()

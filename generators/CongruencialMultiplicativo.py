@@ -1,6 +1,9 @@
 import sys
 
 def CongruencialMultiplicativo():
+
+    listaNrosAleatorios = []
+
     print("---------------------------------------------")
     print("---- METODO CONGRUENCIAL MULTIPLICATIVO -----")
     print("---------------------------------------------")
@@ -27,11 +30,15 @@ def CongruencialMultiplicativo():
             ni = (a*semilla)%m
             nroAleatorio = float(ni/m)
             tresDecimales = round(nroAleatorio, 3)
+            listaNrosAleatorios.append(tresDecimales)
             print("u",i+1, ": ",tresDecimales)
             semilla = ni
             i = i+1
-
+        
+        return listaNrosAleatorios
 
     except(ValueError):
         print("Tienes un error de tipo: ",sys.exc_info()[0])
         print("Nota: Se debe ingresar un valor de tipo numerico")
+
+CongruencialMultiplicativo()

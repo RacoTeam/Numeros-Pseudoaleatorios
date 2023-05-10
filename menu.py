@@ -1,5 +1,5 @@
 import sys
-import math
+
 from generators import (CongruencialAditivo, Lehmer, CongruencialMixto, CongruencialMultiplicativo, ParteCentralCuadrado)
 
 print("--------------------------------------------------")
@@ -16,19 +16,19 @@ while bandera == True:
     print("3. Metodo Congruencial Mixto")
     print("4. Metodo Congruencial Multiplicativo")
     print("5. Metodo Congruencial Aditivo")
-    seleccion = int(input("Opción:"))
+    seleccion = int(input("Opción: "))
 
     def switch(seleccion):
         if seleccion == 1:
-            ParteCentralCuadrado.Cuadrado()
+            print(ParteCentralCuadrado.Cuadrado())
         elif seleccion == 2:
-            Lehmer.Lehmer()
+            print(Lehmer.Lehmer())
         elif seleccion == 3:
-            CongruencialMixto.CongruencialMixto()
+            print(CongruencialMixto.CongruencialMixto())
         elif seleccion == 4:
-            CongruencialMultiplicativo.CongruencialMultiplicativo()
+            print(CongruencialMultiplicativo.CongruencialMultiplicativo())
         elif seleccion == 5:
-            CongruencialAditivo.CongruencialAditivo()
+            print(CongruencialAditivo.CongruencialAditivo())
 
     print(switch(seleccion)) 
 

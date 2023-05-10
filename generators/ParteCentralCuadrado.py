@@ -1,69 +1,40 @@
 import sys
 
 def Cuadrado():
+    listaNrosAleatorios = []
+
     print("---------------------------------------------")
     print("-- METODO DE LA PARTE CENTRAL DEL CUADRADO --")
     print("---------------------------------------------")
-
+    
     try:
         M = int(input("Ingrese la semilla M: "))
         n = int(input("Ingrese el numero de digitos deseados N: "))
         tot = int(input("Ingrese el total de numeros a generar TOT: "))
-
-        j = 0
+        
+        j = 0 
+        
         while (j<tot):
             x = pow(M,2)
-            cadenaX = str(x)
-            digitosCadena = len(cadenaX)
+            str_numero = str(x)
+            longitud = len(str_numero)
+            mitad = longitud // 2
+            inicio = mitad - (n // 2)
+            fin = inicio + n
+            partes_centrales = str_numero[inicio:fin]
+            concatenar = "0."+str(partes_centrales)
+            nroAleatorio = float(concatenar)
+            listaNrosAleatorios.append(nroAleatorio)
+            print("-------")
+            print("u",j+1, ": ",concatenar)
+            print("-------")
+            M = int(partes_centrales)
+            j=j+1
 
-            pOi = digitosCadena - n
-
-            if pOi%2 == 0:
-                if digitosCadena == 1:
-                    print(cadenaX)
-                    M = int(cadenaX)
-                if digitosCadena == 3:
-                    print(cadenaX[1])
-                    M = int(cadenaX[1])
-                if digitosCadena == 5:
-                    print(cadenaX[1:4])
-                    M = int(cadenaX[1:4])
-                if digitosCadena == 7:
-                    print(cadenaX[2:5])
-                    M = int(cadenaX[2:5])
-                
-                concatenar = "0,"+str(M)
-                print("-------")
-                print("u",j+1, ": ",concatenar)
-                print("-------")
-                j = j+1
-
-            else:
-                xMult = x*10
-                cadenaX = str(xMult)
-                digitosCadena = len(cadenaX)
-                if digitosCadena == 1:
-                    print(cadenaX)
-                    M = int(cadenaX)
-                if digitosCadena == 3:
-                    print(cadenaX[1])
-                    M = int(cadenaX[1])
-                if digitosCadena == 5:
-                    print(cadenaX[1:4])
-                    M = int(cadenaX[1:4])
-                if digitosCadena == 7:
-                    print(cadenaX[2:5])
-                    M = int(cadenaX[2:5])
-
-                concatenar = "0,"+str(M)
-                print("-------")
-                print("u",j+1, ": ",concatenar)
-                print("-------")
-                j=j+1    
-
-
+        return listaNrosAleatorios
+    
     except(ValueError):
         print("Tienes un error de tipo: ",sys.exc_info()[0])
         print("Nota: Se debe ingresar un valor de tipo numerico")
 
-        #Para verificar si es par o impar 
+Cuadrado()
