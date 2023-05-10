@@ -1,0 +1,5 @@
+from generators.CongruencialAditivo import CongruencialAditivo
+from generators.CongruencialMixto import CongruencialMixto
+from generators.CongruencialMultiplicativo import CongruencialMultiplicativo
+from generators.Lehmer import Lehmer
+from generators.ParteCentralCuadrado import Cuadrado
