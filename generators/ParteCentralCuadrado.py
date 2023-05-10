@@ -13,7 +13,9 @@ def Cuadrado():
         tot = int(input("Ingrese el total de numeros a generar TOT: "))
         
         j = 0 
+        banderaprint = True
         
+        print("-------")
         while (j<tot):
             x = pow(M,2)
             str_numero = str(x)
@@ -25,8 +27,7 @@ def Cuadrado():
             concatenar = "0."+str(partes_centrales)
             nroAleatorio = float(concatenar)
             listaNrosAleatorios.append(nroAleatorio)
-            print("-------")
-            print("u",j+1, ": ",concatenar)
+            print("u" + str(j+1) + " : " + concatenar)
             print("-------")
             M = int(partes_centrales)
             j=j+1

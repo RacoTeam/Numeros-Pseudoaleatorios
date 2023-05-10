@@ -26,12 +26,14 @@ def CongruencialMultiplicativo():
 
         cantNro = int(input("Cantidad de numeros aleatorios a generar: "))
         
+        print("-------")
         while(i<cantNro):
             ni = (a*semilla)%m
             nroAleatorio = float(ni/m)
             tresDecimales = round(nroAleatorio, 3)
             listaNrosAleatorios.append(tresDecimales)
-            print("u",i+1, ": ",tresDecimales)
+            print("u" + str(i+1) + " : " + str(tresDecimales))
+            print("-------")
             semilla = ni
             i = i+1
         

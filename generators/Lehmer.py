@@ -26,6 +26,7 @@ def Lehmer():
             k = int(math.log10(t))+1
             n = int(math.log10(semilla))+1
 
+        print("-------")
         while(i<cantNro):
             total = str(semilla*t)
             kDig = total[0:k]
@@ -34,9 +35,8 @@ def Lehmer():
             concatenar = "0."+str(ni)
             nroAleatorio = float(concatenar)
             listaNrosAleatorios.append(nroAleatorio)
-            print("-------")
-            print("n",i+1, ": ",ni)
-            print("u",i+1, ": ",concatenar)
+            print("n" + str(i+1) + " : " + str(ni))
+            print("u" + str(i+1) + " : " + concatenar)
             print("-------")
             semilla = ni
             i = i+1

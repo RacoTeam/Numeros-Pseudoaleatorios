@@ -27,11 +27,13 @@ def CongruencialMixto():
 
         cantNro = int(input("Cantidad de numeros aleatorios a generar: "))
         
+        print("-------")
         while(i<cantNro):
             ni = (a*semilla+c)%m
             nroAleatorio = float(ni/m)
             listaNrosAleatorios.append(nroAleatorio)
-            print("u",i+1, ": ",nroAleatorio)
+            print("u" + str(i+1) + " : " + str(nroAleatorio))
+            print("-------")
             semilla = ni
             i = i+1
         return listaNrosAleatorios
