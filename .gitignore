@@ -2,6 +2,8 @@ __pycache__
 *.pyc
 setup.py
 *.exe
+.vs/
+Numeros-Pseudoaleatorios/.vs
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,4 +1,5 @@
 from generators.generadores import *
+from pruebas.pruebas import *
 
 # def ingresarNumerosAleatorios():
 #     listaNrosAleatorios = []
@@ -40,36 +41,34 @@ if __name__ == '__main__':
         seleccion = input("Opción: ")
         seleccion = int(seleccion)
 
-        def switch(seleccion):
-            if seleccion == 1:
-                listaNrosAleatorios = Cuadrado()
-                print(listaNrosAleatorios)
-            elif seleccion == 2:
-                listaNrosAleatorios = Lehmer()
-                print(listaNrosAleatorios)
-            elif seleccion == 3:
-                listaNrosAleatorios = CongruencialMixto()
-                print(listaNrosAleatorios)
-            elif seleccion == 4:
-                listaNrosAleatorios = CongruencialMultiplicativo()
-                print(listaNrosAleatorios)
-            elif seleccion == 5:
-                listaNrosAleatorios = CongruencialAditivo()
-                print(listaNrosAleatorios)
-            elif seleccion == 6:
-                print("Para realizar las pruebas estadísticas se necesitan de números pseudo-aleatorios previamente generados.")
-                print("Seleccione la forma de obtención de los números pseudo-aleatorios")
-                print("Opcion 1: Ingresarlos manualmente")
-                print("Opcion 2: Generarlos a traves de los generadores")
-                opcion = int(input("Opcion: "))
-                if opcion == 1:
-                    print("Ingresar Manualmente nros aleatorios")
-                elif opcion == 2:
-                    print("Menu Generadores")
-                else:
-                    print("Opcion invalida")
+        if seleccion == 1:
+            listaNrosAleatorios = Cuadrado()
+            print(listaNrosAleatorios)
+        elif seleccion == 2:
+            listaNrosAleatorios = Lehmer()
+            print(listaNrosAleatorios)
+        elif seleccion == 3:
+            listaNrosAleatorios = CongruencialMixto()
+            print(listaNrosAleatorios)
+        elif seleccion == 4:
+            listaNrosAleatorios = CongruencialMultiplicativo()
+            print(listaNrosAleatorios)
+        elif seleccion == 5:
+            listaNrosAleatorios = CongruencialAditivo()
+            print(listaNrosAleatorios)
+        elif seleccion == 6:
+            print("Para realizar las pruebas estadísticas se necesitan de números pseudo-aleatorios previamente generados.")
+            print("Seleccione la forma de obtención de los números pseudo-aleatorios")
+            print("Opcion 1: Ingresarlos manualmente")
+            print("Opcion 2: Generarlos a traves de los generadores")
+            opcion = int(input("Opcion: "))
+            if opcion == 1:
+                print("Ingresar Manualmente nros aleatorios")
+            elif opcion == 2:
+                print("Menu Generadores")
             else:
-                print("Error. Seleccione una opción válida.")
+                print("Opcion invalida")
+        else:
+            print("Error. Seleccione una opción válida.")
 
-        switch(seleccion)
         banderaGeneradores = False
