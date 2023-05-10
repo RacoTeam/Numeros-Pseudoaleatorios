@@ -1,4 +1,5 @@
 import os
+import msvcrt
 from generators.generadores import *
 from pruebas.pruebas import *
 
@@ -85,27 +86,28 @@ def menu_pruebas(listaPrueba):
     print("")
     
     seleccion = input("Opción: ")
-    try:
-        seleccion = int(seleccion)
-        limpiar_consola()
+    # try:
+    seleccion = int(seleccion)
+    limpiar_consola()
 
-        if seleccion == 1:
-            Promedios(listaPrueba)
-        elif seleccion == 2:
-            Frecuencia(listaPrueba)
-        elif seleccion == 3:
-            Serie(listaPrueba)
-        elif seleccion == 4:
-            PruebaKS(listaPrueba)
-        elif seleccion == 5:
-            CorridaAyA(listaPrueba)
-        elif seleccion == 0:
-            return
-        else:
-            print("Error. Seleccione una opción válida.")
-    except:
-        if seleccion:
-            print("Error. Seleccione una opción válida.")
+    if seleccion == 1:
+        Promedios(listaPrueba)
+    elif seleccion == 2:
+        Frecuencia(listaPrueba)
+    elif seleccion == 3:
+        Serie(listaPrueba)
+    elif seleccion == 4:
+        PruebaKS(listaPrueba)
+    elif seleccion == 5:
+        CorridaAyA(listaPrueba)
+    elif seleccion == 0:
+        return
+    else:
+        print("Error. Seleccione una opción válida.")
+    # except:
+    #     if seleccion:
+    #         print("Error.")
+    
 
 #Funciona como un main. Indica que empieza a ejecutar aqui
 if __name__ == '__main__':
@@ -113,7 +115,7 @@ if __name__ == '__main__':
     limpiar_consola()
 
     bandera = True
-    listaNrosAleatorios = []
+    listaNrosAleatorios = [0.68,0.585,0.01]
 
     print("--------------------------------------------------")
     print("---- GENERADORES DE NÚMEROS PSEUDO-ALEATORIOS ----")
@@ -136,40 +138,40 @@ if __name__ == '__main__':
 
         seleccion = input("Opción: ")
         
-        try:
-            seleccion = int(seleccion)
-            limpiar_consola()
+        # try:
+        seleccion = int(seleccion)
+        limpiar_consola()
 
-            if seleccion == 1:
-                listaNrosAleatorios = menu_generadores()
-            elif seleccion == 2:
-                if len(listaNrosAleatorios) == 0:
-                    print("Para realizar las pruebas estadísticas se necesitan de números pseudo-aleatorios previamente generados.")
-                    print("Seleccione la forma de obtención de los números pseudo-aleatorios")
-                    print("Opción 1: Ingresarlos manualmente")
-                    print("Opción 2: Generarlos a través de un generador")
-                    try:
-                        opcion = int(input("Opción: "))
-                        limpiar_consola()
-                        if opcion == 1:
-                            listaNrosAleatorios = ingreso_manual()
-                        elif opcion == 2:
-                            listaNrosAleatorios = menu_generadores()
-                        else:
-                            print("Opción invalida")
-                    except:
-                        if opcion:
-                            print("Error. Seleccione una opción válida.")
+        if seleccion == 1:
+            listaNrosAleatorios = menu_generadores()
+        elif seleccion == 2:
+            if len(listaNrosAleatorios) == 0:
+                print("Para realizar las pruebas estadísticas se necesitan de números pseudo-aleatorios previamente generados.")
+                print("Seleccione la forma de obtención de los números pseudo-aleatorios")
+                print("Opción 1: Ingresarlos manualmente")
+                print("Opción 2: Generarlos a través de un generador")
+                # try:
+                opcion = int(input("Opción: "))
+                limpiar_consola()
+                if opcion == 1:
+                    listaNrosAleatorios = ingreso_manual()
+                elif opcion == 2:
+                    listaNrosAleatorios = menu_generadores()
                 else:
-                    menu_pruebas(listaNrosAleatorios)
-            elif seleccion == 3:
-                listaNrosAleatorios = ingreso_manual()
-            elif seleccion == 0:
-                bandera = False
+                    print("Opción invalida")
+                # except:
+                #     if opcion:
+                #         print("Error. Seleccione una opción válida.")
             else:
-                print("Error. Seleccione una opción válida.")
-        except:
-            if seleccion:
-                print("Error. Seleccione una opción válida.")
+                menu_pruebas(listaNrosAleatorios)
+        elif seleccion == 3:
+            listaNrosAleatorios = ingreso_manual()
+        elif seleccion == 0:
+            bandera = False
+        else:
+            print("Error. Seleccione una opción válida.")
+        # except:
+        #     if seleccion:
+        #         print("Error. Seleccione una opción válida.")
 
         limpiar_consola()

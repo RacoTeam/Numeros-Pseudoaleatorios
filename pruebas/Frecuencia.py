@@ -1,42 +1,52 @@
 import sys
+import msvcrt
 
-def Frecuencia():
-
-    listaNrosAleatorios = []
+def Frecuencia(listaNros):
 
     print("---------------------------------------------")
-    print("--------- METODO CONGRUENCIAL MIXTO ---------")
+    print("--------- PRUEBA DE LA FRECUENCIA -----------")
     print("---------------------------------------------")
 
-    i=0
+    # try:  
+    # Datos
+    z_a = float(input("Ingrese el estadistico Za: "))
+    n = len(listaNros)
+    x = float(input("Ingrese el numero de subintervalos: "))
+    
+    listaIntervalos = []
+    listaFrecuenciaEsp = []
+    listaFrecuenciaObs = []
 
-    try:
-        semilla = int(input("Ingrese la semilla n0: "))
-        a = int(input("Ingrese la constante multiplicativa a: "))
-        c = int(input("Ingrese la constante aditiva c: "))
-        m = int(input("Ingrese el modulo m: "))
+    #2. Dividir al intervalo (0,1) en x sub-intervalos.
 
-        while(a<0):
-            a = int(input("Error. Ingrese la constante multiplicativa a: "))
-            
-        while(c<0):
-            c = int(input("Error. Ingrese la constante aditiva c: "))
+    ancho = 1/x
+    intervalo = ancho
+    while intervalo <= 1:
+        listaIntervalos.append(intervalo)
+        intervalo = round(intervalo + ancho, 6)
 
-        while(m<0):
-            m = int(input("Error. Ingrese el modulo m: "))
+    #2.1 𝑭𝒆=𝒏/𝒙 Frecuencia esperada de variables u en cada subintervalo
 
-        cantNro = int(input("Cantidad de numeros aleatorios a generar: "))
-        
-        while(i<cantNro):
-            ni = (a*semilla+c)%m
-            nroAleatorio = float(ni/m)
-            listaNrosAleatorios.append(nroAleatorio)
-            print("u",i+1, ": ",nroAleatorio)
-            semilla = ni
-            i = i+1
-        return listaNrosAleatorios
+    for nro in listaNros:
+        for inter in listaIntervalos:
+            if nro < inter
 
-    except(ValueError):
-        print("Tienes un error de tipo: ",sys.exc_info()[0])
-        print("Nota: Se debe ingresar un valor de tipo numerico")
+    #3. Determinar la frecuencia observada en cada sub-intervalo. Se denota como Foj, (con j=1,2,…,x)
 
+    #4 Determinar el valor del estadístico Chi Cuadrado 𝝌2, utilizando la siguiente fórmula 
+    z_0 = ((prom-0.5)*pow(n,0.5))/0.2886
+
+    #4. Si |𝒁𝟎|< Zα
+    if z_0 < z_a:
+        print("No se rechaza la hipótesis de que los números")
+        print("provienen de un universo uniformemente distribuido")
+    else:
+        print("Se rechaza la hipótesis de que los números")
+        print("provienen de un universo uniformemente distribuido")
+
+    # except(ValueError):
+    #     print("Tienes un error de tipo: ",sys.exc_info()[0])
+    #     print("Nota: Se debe ingresar un valor de tipo numerico")
+
+    print("Presione cualquier tecla para continuar...")
+    msvcrt.getch()

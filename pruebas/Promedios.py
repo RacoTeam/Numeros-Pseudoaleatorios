@@ -1,47 +1,39 @@
 import sys
+import msvcrt
 
-def Promedios():
-
-    listaNrosAleatorios = []
+def Promedios(listaNros):
 
     print("---------------------------------------------")
-    print("-------- METODO CONGRUENCIAL ADITIVO --------")
+    print("-------- PRUEBA DE LOS PROMEDIOS --------")
     print("---------------------------------------------")
 
-    i=0
-    j = 0
-    lista = []
+    i = 0
+    m = 0
+    n = len(listaNros)
 
-    try:
-        k = int(input("Ingrese el mayor subindice k: "))
-        while(i<=k):
-            if(k==0):
-                print("Ingrese el n0")
-                ni = int(input())
-                lista.append(ni)
-                i = i+1
+    # try:  
+    z_a = float(input("Ingrese el estadistico Za: "))
 
-            else:    
-                print("Ingrese el n -",k)
-                ni = int(input())
-                lista.append(ni)
-                i = i+1
-        m = int(input("Ingrese el modulo m: "))  
-        while(m<0):
-            m = int(input("Error. Ingrese el modulo m: "))
+    while(i<n):
+        m = m + float(listaNros[i])
+        i = i+1
 
-        ultimo = int(len(lista))
-        for i in range(ultimo):
-            ni = (int(lista[ultimo-1]) + int(lista[i])) % m
-            nroAleatorio = float(ni/m)
-            tresDecimales = round(nroAleatorio, 3)
-            listaNrosAleatorios.append(tresDecimales)
-            print("u",i+1, ": ",tresDecimales)
-            lista.append(ni)
-            ultimo = int(len(lista))
-        
-        return listaNrosAleatorios
+    prom = m/n
+    
+    #3 Determinar el valor del estadístico Zo, utilizando la siguiente fórmula 
+    z_0 = ((prom-0.5)*pow(n,0.5))/0.2886
 
-    except(ValueError):
-        print("Tienes un error de tipo: ",sys.exc_info()[0])
-        print("Nota: Se debe ingresar un valor de tipo numerico")
+    #4. Si |𝒁𝟎|< Zα
+    if z_0 < z_a:
+        print("No se rechaza la hipótesis de que los números")
+        print("provienen de un universo uniformemente distribuido")
+    else:
+        print("Se rechaza la hipótesis de que los números")
+        print("provienen de un universo uniformemente distribuido")
+
+    # except(ValueError):
+    #     print("Tienes un error de tipo: ",sys.exc_info()[0])
+    #     print("Nota: Se debe ingresar un valor de tipo numerico")
+
+    print("Presione cualquier tecla para continuar...")
+    msvcrt.getch()
