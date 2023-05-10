@@ -1,6 +1,9 @@
 import sys
 
 def CongruencialAditivo():
+
+    listaNrosAleatorios = []
+
     print("---------------------------------------------")
     print("-------- METODO CONGRUENCIAL ADITIVO --------")
     print("---------------------------------------------")
@@ -32,10 +35,12 @@ def CongruencialAditivo():
             ni = (int(lista[ultimo-1]) + int(lista[i])) % m
             nroAleatorio = float(ni/m)
             tresDecimales = round(nroAleatorio, 3)
+            listaNrosAleatorios.append(tresDecimales)
             print("u",i+1, ": ",tresDecimales)
             lista.append(ni)
             ultimo = int(len(lista))
-
+        
+        return listaNrosAleatorios
 
     except(ValueError):
         print("Tienes un error de tipo: ",sys.exc_info()[0])

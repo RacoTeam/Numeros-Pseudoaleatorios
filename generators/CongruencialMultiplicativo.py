@@ -40,5 +40,3 @@ def CongruencialMultiplicativo():
     except(ValueError):
         print("Tienes un error de tipo: ",sys.exc_info()[0])
         print("Nota: Se debe ingresar un valor de tipo numerico")
-
-CongruencialMultiplicativo()
