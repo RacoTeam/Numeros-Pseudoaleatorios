@@ -1,4 +1,5 @@
-from pruebas.mensaje import MostrarMensaje
+from pruebas.mensaje import mostrar_mensaje
+from pruebas.mensaje import mostrar_lista
 import msvcrt
 
 def crear_matriz(x):
@@ -54,7 +55,7 @@ def Serie(listaNros):
     print("------------- PRUEBA DE SERIE ---------------")
     print("---------------------------------------------")
 
-    
+    mostrar_lista(listaNros)    
     # 1. Generar n pares de números pseudo-aleatorios (ui, u i+1 )
     
     if (len(listaNros) % 2) != 0:
@@ -108,9 +109,9 @@ def Serie(listaNros):
     
     print("Chi Cuadrado X^2 = " + str(round(chicuad, 2)))
 
-    print("¿" + str(round(chicuad, 2)) + " < " + str(est_x2) + "?")
+    print("¿" + str(round(chicuad, 2)) + " < " + str(est_x2) + "?", end="")
 
     if chicuad < est_x2:
-        MostrarMensaje(True)
+        mostrar_mensaje(True)
     else:
-        MostrarMensaje(False)
+        mostrar_mensaje(False)

@@ -1,11 +1,13 @@
-from pruebas.mensaje import MostrarMensaje
+from pruebas.mensaje import mostrar_mensaje
+from pruebas.mensaje import mostrar_lista
 
 def Promedios(listaNros):
 
     print("---------------------------------------------")
     print("--------- PRUEBA DE LOS PROMEDIOS -----------")
     print("---------------------------------------------")
-
+    
+    mostrar_lista(listaNros)
     i = 0
     m = 0
     n = len(listaNros)
@@ -28,12 +30,12 @@ def Promedios(listaNros):
 
     #4. Si |𝒁𝟎|< Zα
 
-    print("¿" + str(round(est_z0, 2)) + " < " + str(est_za) + "?")
+    print("¿" + str(abs(round(est_z0, 2))) + " < " + str(est_za) + "?", end="")
     
-    if est_z0 < est_za:
-        MostrarMensaje(True)
+    if abs(est_z0) < est_za:
+        mostrar_mensaje(True)
     else:
-        MostrarMensaje(False)
+        mostrar_mensaje(False)
 
     # except(ValueError):
     #     print("Tienes un error de tipo: ",sys.exc_info()[0])
