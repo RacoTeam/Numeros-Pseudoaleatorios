@@ -1,38 +1,56 @@
 import sys
+import msvcrt
 
-def PruebaKS():
-    listaNrosAleatorios = []
+def Promedios(listaNros):
 
     print("---------------------------------------------")
-    print("-- METODO DE LA PARTE CENTRAL DEL CUADRADO --")
+    print("-------- PRUEBA K-S --------")
     print("---------------------------------------------")
-    
-    try:
-        M = int(input("Ingrese la semilla M: "))
-        n = int(input("Ingrese el numero de digitos deseados N: "))
-        tot = int(input("Ingrese el total de numeros a generar TOT: "))
-        
-        j = 0 
-        
-        while (j<tot):
-            x = pow(M,2)
-            str_numero = str(x)
-            longitud = len(str_numero)
-            mitad = longitud // 2
-            inicio = mitad - (n // 2)
-            fin = inicio + n
-            partes_centrales = str_numero[inicio:fin]
-            concatenar = "0."+str(partes_centrales)
-            nroAleatorio = float(concatenar)
-            listaNrosAleatorios.append(nroAleatorio)
-            print("-------")
-            print("u",j+1, ": ",concatenar)
-            print("-------")
-            M = int(partes_centrales)
-            j=j+1
 
-        return listaNrosAleatorios
     
-    except(ValueError):
-        print("Tienes un error de tipo: ",sys.exc_info()[0])
-        print("Nota: Se debe ingresar un valor de tipo numerico")
+
+    # try:  
+    d_a = float(input("Ingrese el estadistico d: "))
+    n = len(listaNros)
+
+    listaOrdenada = sorted(listaNros)
+    listaFn = []
+
+    i = 0
+    while(i<n):
+        listaFn.append(i/n)
+        i=i+1
+    
+    j=0
+    listaResta = []
+
+    while(j<n):
+        listaResta.append(listaNros[j] - listaOrdenada[j])
+        j = j + 10
+    
+    maximo  = max(listaResta)
+
+    if(maximo < d_a):
+        print("No se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
+    else:
+        print("Se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
+
+    
+    
+    #3 Determinar el valor del estadístico Zo, utilizando la siguiente fórmula 
+    
+
+    #4. Si |𝒁𝟎|< Zα
+    
+
+    # except(ValueError):
+    #     print("Tienes un error de tipo: ",sys.exc_info()[0])
+    #     print("Nota: Se debe ingresar un valor de tipo numerico")
+
+
+
+
+
+    print("Presione cualquier tecla para continuar...")
+    msvcrt.getch()
+

@@ -1,48 +1,56 @@
 import sys
-import math
+import msvcrt
 
-def CorridaAyA():
+def Promedios(listaNros):
 
-    listaNrosAleatorios = []
+    print("---------------------------------------------")
+    print("-------- PRUEBA DE CORRIDA ARRIBA Y ABAJO --------")
+    print("---------------------------------------------")
+
     
-    print("---------------------------------------------")
-    print("-------------- METODO DE LEHMER -------------")
-    print("---------------------------------------------")
 
-    i=0
+    # try:  
+    d_a = float(input("Ingrese el estadistico d: "))
+    n = len(listaNros)
 
-    try:
-        semilla = int(input("Ingrese la semilla n0: "))
-        t = int(input("Ingrese el numero t: "))
-        
-        k = int(math.log10(t))+1
-        n = int(math.log10(semilla))+1
+    listaOrdenada = sorted(listaNros)
+    listaFn = []
 
-        cantNro = int(input("Cantidad de numeros aleatorios a generar: "))
-        while(k>n):
-            print("Error. Volver a ingresar los numeros")
-            semilla = int(input("Ingrese la semilla n0: "))
-            t = int(input("Ingrese el numero t: "))
-            k = int(math.log10(t))+1
-            n = int(math.log10(semilla))+1
+    i = 0
+    while(i<n):
+        listaFn.append(i/n)
+        i=i+1
+    
+    j=0
+    listaResta = []
 
-        while(i<cantNro):
-            total = str(semilla*t)
-            kDig = total[0:k]
-            ultimos = total[k:len(total)]
-            ni = int(ultimos) - int(kDig)
-            concatenar = "0."+str(ni)
-            nroAleatorio = float(concatenar)
-            listaNrosAleatorios.append(nroAleatorio)
-            print("-------")
-            print("n",i+1, ": ",ni)
-            print("u",i+1, ": ",concatenar)
-            print("-------")
-            semilla = ni
-            i = i+1
+    while(j<n):
+        listaResta.append(listaNros[j] - listaOrdenada[j])
+        j = j + 10
+    
+    maximo  = max(listaResta)
 
-        return listaNrosAleatorios
-            
-    except(ValueError):
-        print("Tienes un error de tipo: ",sys.exc_info()[0])
-        print("Nota: Se debe ingresar un valor de tipo numerico")
+    if(maximo < d_a):
+        print("No se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
+    else:
+        print("Se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
+
+    
+    
+    #3 Determinar el valor del estadístico Zo, utilizando la siguiente fórmula 
+    
+
+    #4. Si |𝒁𝟎|< Zα
+    
+
+    # except(ValueError):
+    #     print("Tienes un error de tipo: ",sys.exc_info()[0])
+    #     print("Nota: Se debe ingresar un valor de tipo numerico")
+
+
+
+
+
+    print("Presione cualquier tecla para continuar...")
+    msvcrt.getch()
+
