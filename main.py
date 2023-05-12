@@ -3,16 +3,6 @@ import msvcrt
 from generators.generadores import *
 from pruebas.pruebas import *
 
-# def ingresarNumerosAleatorios():
-#     listaNrosAleatorios = []
-#     i = 0
-#     cant = int(input("Cantidad de numeros a ingresar: "))
-#     while(i<cant):
-#         num = float(input("Numero",i+1,":"))
-#         listaNrosAleatorios.append(num)
-#         i = i+1
-#     return listaNrosAleatorios
-
 def limpiar_consola():
     if os.name == 'posix':  # Linux y macOS
         os.system('clear')
@@ -108,7 +98,6 @@ def menu_pruebas(listaPrueba):
     #     if seleccion:
     #         print("Error.")
     
-
 #Funciona como un main. Indica que empieza a ejecutar aqui
 if __name__ == '__main__':
 
