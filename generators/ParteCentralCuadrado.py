@@ -10,7 +10,7 @@ def Cuadrado():
     try:
         M = int(input("Ingrese la semilla M: "))
         n = int(input("Ingrese el numero de digitos deseados N: "))
-        tot = int(input("Ingrese el total de numeros a generar TOT: "))
+        tot = int(input("Ingrese el total de números a generar TOT: "))
         
         j = 0 
         banderaprint = True

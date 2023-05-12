@@ -29,25 +29,9 @@ def PruebaKS(listaNros):
     maximo  = max(listaResta)
 
     if(maximo < d_a):
-        print("No se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
+        print("No se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
     else:
-        print("Se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
-
-    
-    
-    #3 Determinar el valor del estadístico Zo, utilizando la siguiente fórmula 
-    
-
-    #4. Si |𝒁𝟎|< Zα
-    
-
-    # except(ValueError):
-    #     print("Tienes un error de tipo: ",sys.exc_info()[0])
-    #     print("Nota: Se debe ingresar un valor de tipo numerico")
-
-
-
-
+        print("Se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
 
     print("Presione cualquier tecla para continuar...")
     msvcrt.getch()

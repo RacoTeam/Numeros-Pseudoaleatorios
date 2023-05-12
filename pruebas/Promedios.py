@@ -4,7 +4,7 @@ import msvcrt
 def Promedios(listaNros):
 
     print("---------------------------------------------")
-    print("-------- PRUEBA DE LOS PROMEDIOS --------")
+    print("--------- PRUEBA DE LOS PROMEDIOS -----------")
     print("---------------------------------------------")
 
     i = 0

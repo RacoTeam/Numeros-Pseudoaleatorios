@@ -18,9 +18,9 @@ def Lehmer():
         k = int(math.log10(t))+1
         n = int(math.log10(semilla))+1
 
-        cantNro = int(input("Cantidad de numeros aleatorios a generar: "))
+        cantNro = int(input("Cantidad de números aleatorios a generar: "))
         while(k>n):
-            print("Error. Volver a ingresar los numeros")
+            print("Error. Volver a ingresar los números")
             semilla = int(input("Ingrese la semilla n0: "))
             t = int(input("Ingrese el numero t: "))
             k = int(math.log10(t))+1

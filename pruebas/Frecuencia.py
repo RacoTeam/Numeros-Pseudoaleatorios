@@ -58,9 +58,9 @@ def Frecuencia(listaNros):
     
     x2 = frecuenciaEsperada*sum
     if(x2 < x_a):
-        print("No se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
+        print("No se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
     else:
-        print("Se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
+        print("Se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
 
 
 

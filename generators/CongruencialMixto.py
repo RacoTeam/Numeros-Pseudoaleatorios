@@ -25,7 +25,7 @@ def CongruencialMixto():
         while(m<0):
             m = int(input("Error. Ingrese el modulo m: "))
 
-        cantNro = int(input("Cantidad de numeros aleatorios a generar: "))
+        cantNro = int(input("Cantidad de números aleatorios a generar: "))
         
         print("-------")
         while(i<cantNro):

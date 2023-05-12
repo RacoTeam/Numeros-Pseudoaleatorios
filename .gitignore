@@ -4,6 +4,8 @@ setup.py
 *.exe
 .vs/
 Numeros-Pseudoaleatorios/.vs
+test.py
+text.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
