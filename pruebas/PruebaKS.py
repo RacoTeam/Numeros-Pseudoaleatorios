@@ -1,5 +1,4 @@
-import sys
-import msvcrt
+from pruebas.mensaje import MostrarMensaje
 
 def PruebaKS(listaNros):
 
@@ -8,7 +7,7 @@ def PruebaKS(listaNros):
     print("---------------------------------------------")
 
     # try:  
-    d_a = float(input("Ingrese el estadistico d: "))
+    d_a = float(input("Ingrese el Estadístico d: "))
     n = len(listaNros)
 
     listaOrdenada = sorted(listaNros)
@@ -28,11 +27,10 @@ def PruebaKS(listaNros):
     
     maximo  = max(listaResta)
 
-    if(maximo < d_a):
-        print("No se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
-    else:
-        print("Se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
+    print("¿" + str(round(maximo, 2)) + " < " + str(d_a) + "?")
 
-    print("Presione cualquier tecla para continuar...")
-    msvcrt.getch()
+    if maximo < d_a:
+        MostrarMensaje(True)
+    else:
+        MostrarMensaje(False)
 

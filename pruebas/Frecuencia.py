@@ -1,5 +1,4 @@
-import sys
-import msvcrt
+from pruebas.mensaje import MostrarMensaje
 
 def Frecuencia(listaNros):
 
@@ -9,7 +8,7 @@ def Frecuencia(listaNros):
 
     # try:  
     # Datos
-    x_a = float(input("Ingrese el estadistico Xa: "))
+    x_a = float(input("Ingrese el Estadístico Xa: "))
     n = len(listaNros)
     x = float(input("Ingrese el numero de subintervalos: "))
     
@@ -57,24 +56,14 @@ def Frecuencia(listaNros):
     #4. Si |X2|< X2α
     
     x2 = frecuenciaEsperada*sum
-    if(x2 < x_a):
-        print("No se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
+
+    print("¿" + str(round(x2, 2)) + " < " + str(x_a) + "?")
+
+    if x2 < x_a:
+        MostrarMensaje(True)
     else:
-        print("Se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
-
-
-
-    
-    # if z_0 < z_a:
-    #     print("No se rechaza la hipótesis de que los números")
-    #     print("provienen de un universo uniformemente distribuido")
-    # else:
-    #     print("Se rechaza la hipótesis de que los números")
-    #     print("provienen de un universo uniformemente distribuido")
+        MostrarMensaje(False)
 
     # except(ValueError):
     #     print("Tienes un error de tipo: ",sys.exc_info()[0])
     #     print("Nota: Se debe ingresar un valor de tipo numerico")
-
-    print("Presione cualquier tecla para continuar...")
-    msvcrt.getch()

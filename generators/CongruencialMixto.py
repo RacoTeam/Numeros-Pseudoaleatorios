@@ -5,7 +5,7 @@ def CongruencialMixto():
     listaNrosAleatorios = []
 
     print("---------------------------------------------")
-    print("--------- METODO CONGRUENCIAL MIXTO ---------")
+    print("--------- MÉTODO CONGRUENCIAL MIXTO ---------")
     print("---------------------------------------------")
 
     i=0

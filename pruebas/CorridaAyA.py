@@ -1,5 +1,4 @@
-import sys
-import msvcrt
+from pruebas.mensaje import MostrarMensaje
 from itertools import groupby
 
 # Son las 3am esto es un quilombo no preguntes como funciona
@@ -70,9 +69,6 @@ def CorridaAyA(listaNros):
     print("¿" + str(chicuad) + " < " + str(est_x) + "?")
 
     if(chicuad < est_x):
-        print("No se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
+        MostrarMensaje(True)
     else:
-        print("Se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido")
-
-    print("Presione cualquier tecla para continuar...")
-    msvcrt.getch()
+        MostrarMensaje(False)

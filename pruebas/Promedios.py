@@ -1,5 +1,4 @@
-import sys
-import msvcrt
+from pruebas.mensaje import MostrarMensaje
 
 def Promedios(listaNros):
 
@@ -12,28 +11,30 @@ def Promedios(listaNros):
     n = len(listaNros)
 
     # try:  
-    z_a = float(input("Ingrese el estadistico Za: "))
+    est_za = float(input("Ingrese el estadístico Za: "))
 
     while(i<n):
         m = m + float(listaNros[i])
         i = i+1
 
     prom = m/n
+
+    print("Promedio X = " + str(prom))
     
     #3 Determinar el valor del estadístico Zo, utilizando la siguiente fórmula 
-    z_0 = ((prom-0.5)*pow(n,0.5))/0.2886
+    est_z0 = ((prom-0.5)*pow(n,0.5))/0.2886
+
+    print("Estadístico Zo = " + str(est_z0))
 
     #4. Si |𝒁𝟎|< Zα
-    if z_0 < z_a:
-        print("No se rechaza la hipótesis de que los números")
-        print("provienen de un universo uniformemente distribuido")
+
+    print("¿" + str(round(est_z0, 2)) + " < " + str(est_za) + "?")
+    
+    if est_z0 < est_za:
+        MostrarMensaje(True)
     else:
-        print("Se rechaza la hipótesis de que los números")
-        print("provienen de un universo uniformemente distribuido")
+        MostrarMensaje(False)
 
     # except(ValueError):
     #     print("Tienes un error de tipo: ",sys.exc_info()[0])
     #     print("Nota: Se debe ingresar un valor de tipo numerico")
-
-    print("Presione cualquier tecla para continuar...")
-    msvcrt.getch()

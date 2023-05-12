@@ -5,7 +5,7 @@ def CongruencialAditivo():
     listaNrosAleatorios = []
 
     print("---------------------------------------------")
-    print("-------- METODO CONGRUENCIAL ADITIVO --------")
+    print("-------- MÉTODO CONGRUENCIAL ADITIVO --------")
     print("---------------------------------------------")
 
     i=0

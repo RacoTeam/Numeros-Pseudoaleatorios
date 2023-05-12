@@ -1,4 +1,4 @@
-import sys
+from pruebas.mensaje import MostrarMensaje
 import msvcrt
 
 def crear_matriz(x):
@@ -111,11 +111,6 @@ def Serie(listaNros):
     print("¿" + str(round(chicuad, 2)) + " < " + str(est_x2) + "?")
 
     if chicuad < est_x2:
-        print("No se rechaza la hipótesis de que los números")
-        print("provienen de un universo uniformemente distribuido")
+        MostrarMensaje(True)
     else:
-        print("Se rechaza la hipótesis de que los números")
-        print("provienen de un universo uniformemente distribuido")
-
-    print("Presione cualquier tecla para continuar...")
-    msvcrt.getch()
+        MostrarMensaje(False)

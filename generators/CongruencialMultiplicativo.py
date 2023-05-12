@@ -5,7 +5,7 @@ def CongruencialMultiplicativo():
     listaNrosAleatorios = []
 
     print("---------------------------------------------")
-    print("---- METODO CONGRUENCIAL MULTIPLICATIVO -----")
+    print("---- MÉTODO CONGRUENCIAL MULTIPLICATIVO -----")
     print("---------------------------------------------")
 
     i=0

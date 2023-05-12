@@ -4,7 +4,7 @@ def Cuadrado():
     listaNrosAleatorios = []
 
     print("---------------------------------------------")
-    print("-- METODO DE LA PARTE CENTRAL DEL CUADRADO --")
+    print("-- MÉTODO DE LA PARTE CENTRAL DEL CUADRADO --")
     print("---------------------------------------------")
     
     try:
