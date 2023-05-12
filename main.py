@@ -9,20 +9,50 @@ def limpiar_consola():
     elif os.name == 'nt':  # Windows
         os.system('cls')
 
-def ingreso_manual():
+def ingreso_manual(listaNros):
+    print("INGRESO MANUAL:")
+    print("Números cargados: " + str(listaNros))
+    print("1. Añadir a lista")
+    print("2. Cargar nueva lista")
+    print("0. Volver")
+    print("")
+
+    seleccion = input("Opción: ")
+    seleccion = int(seleccion)
+    limpiar_consola()
+    
     numeros = []
     i = 1
-    while True:
-        try:
-            print("Ingrese un número")
-            print("Para finalizar ingrese una tecla no númerica")
-            numero = float(input("n" + str(i) + ": "))
-            i += 1
-            numeros.append(numero)
-            limpiar_consola()
-            print("Números ingresados:", numeros)
-        except ValueError:
-            return numeros
+
+    if seleccion == 1:
+        numeros = listaNros.copy()
+        while True:
+            try:
+                print("Ingrese un número")
+                print("Para finalizar ingrese una tecla no númerica")
+                numero = float(input("n" + str(i) + ": "))
+                i += 1
+                numeros.append(numero)
+                limpiar_consola()
+                print("Números ingresados:", números)
+            except ValueError:
+                return numeros
+    elif seleccion == 2:
+        while True:
+            try:
+                print("Ingrese un número")
+                print("Para finalizar ingrese una tecla no númerica")
+                numero = float(input("n" + str(i) + ": "))
+                i += 1
+                numeros.append(numero)
+                limpiar_consola()
+                print("Números ingresados:", numeros)
+            except ValueError:
+                return numeros
+    elif seleccion == 0:
+        return listaNros
+    else:
+        print("Error. Seleccione una opción válida.")
     
 def menu_generadores():
     print("GENERADORES:")
@@ -104,7 +134,7 @@ if __name__ == '__main__':
     limpiar_consola()
 
     bandera = True
-    listaNrosAleatorios = [0.68,0.585,0.01]
+    listaNrosAleatorios = [0.01, 0.079, 0.168, 0.858, 0.901, 0.74, 0.713, 0.478, 0.277, 0.019, 0.548, 0.426]
 
     print("--------------------------------------------------")
     print("---- GENERADORES DE NÚMEROS PSEUDO-ALEATORIOS ----")
@@ -143,7 +173,7 @@ if __name__ == '__main__':
                 opcion = int(input("Opción: "))
                 limpiar_consola()
                 if opcion == 1:
-                    listaNrosAleatorios = ingreso_manual()
+                    listaNrosAleatorios = ingreso_manual(listaNrosAleatorios)
                 elif opcion == 2:
                     listaNrosAleatorios = menu_generadores()
                 else:
@@ -154,7 +184,7 @@ if __name__ == '__main__':
             else:
                 menu_pruebas(listaNrosAleatorios)
         elif seleccion == 3:
-            listaNrosAleatorios = ingreso_manual()
+            listaNrosAleatorios = ingreso_manual(listaNrosAleatorios)
         elif seleccion == 0:
             bandera = False
         else:
