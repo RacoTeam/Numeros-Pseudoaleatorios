@@ -1,52 +1,70 @@
 import sys
 import msvcrt
 
+def crear_matriz(x):
+    matriz = []
+    ancho_subintervalo = 1 / x
+    largo_subintervalo = 1 / x
+    
+    for i in range(x):
+        fila = []
+        for j in range(x):
+            subintervalo = {
+                'inicio_ancho': i * ancho_subintervalo,
+                'fin_ancho': (i + 1) * ancho_subintervalo,
+                'inicio_largo': j * largo_subintervalo,
+                'fin_largo': (j + 1) * largo_subintervalo,
+            }
+            fila.append(subintervalo)
+        matriz.append(fila)
+    
+    return matriz
+
+def contar_pares_ordenados(pares, matriz):
+    contador = [[0] * len(matriz) for _ in range(len(matriz[0]))]
+    
+    for par in pares:
+        numero_fila = par[0]
+        numero_columna = par[1]
+        
+        for i, fila in enumerate(matriz):
+            for j, subintervalo in enumerate(fila):
+                if subintervalo['inicio_ancho'] <= numero_fila <= subintervalo['fin_ancho'] and \
+                   subintervalo['inicio_largo'] <= numero_columna <= subintervalo['fin_largo']:
+                    contador[i][j] += 1
+    
+    return contador
+
+
+
 def Serie(listaNros):
 
     print("---------------------------------------------")
-    print("-------- PRUEBA K-S --------")
+    print("-------- PRUEBA DE SERIE--------")
     print("---------------------------------------------")
 
-    # try:  
-    d_a = float(input("Ingrese el estadistico d: "))
+
+    x = int(input("Ingrese el numero de x al cuadrado: "))
+    arrayTuplas = []
     n = len(listaNros)
+    if((n % 2) != 0):
+        print("Error. Cantidad de numeros generados impares")
+        msvcrt.getch()
+        return 0
 
-    listaOrdenada = sorted(listaNros)
-    listaFn = []
-
-    i = 0
+        
+    i=0
     while(i<n):
-        listaFn.append(i/n)
-        i=i+1
-    
-    j=0
-    listaResta = []
+        arrayTuplas.append((listaNros[i],listaNros[i+1]))
+        i = i+2
 
-    while(j<n):
-        listaResta.append(listaNros[j] - listaOrdenada[j])
-        j = j + 10
-    
-    maximo  = max(listaResta)
+    matriz_subintervalos = crear_matriz(x)
+    frecuencia_cuadrantes = contar_pares_ordenados(arrayTuplas, matriz_subintervalos)
 
-    if(maximo < d_a):
-        print("No se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
-    else:
-        print("Se rechaza la hipotesis de que los numeros provienen de un universo uniformemente distribuido")
-
-    
-    
-    #3 Determinar el valor del estadístico Zo, utilizando la siguiente fórmula 
-    
-
-    #4. Si |𝒁𝟎|< Zα
-    
-
-    # except(ValueError):
-    #     print("Tienes un error de tipo: ",sys.exc_info()[0])
-    #     print("Nota: Se debe ingresar un valor de tipo numerico")
-
-
-
+    # Imprimir la frecuencia de los cuadrantes
+    for i, fila in enumerate(frecuencia_cuadrantes):
+        for j, frecuencia in enumerate(fila):
+           print(f"Cuadrante ({i+1}, {j+1}): {frecuencia}")
 
 
     print("Presione cualquier tecla para continuar...")
