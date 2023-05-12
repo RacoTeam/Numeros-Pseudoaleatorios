@@ -1,13 +1,11 @@
 import sys
 import msvcrt
 
-def Promedios(listaNros):
+def CorridaAyA(listaNros):
 
     print("---------------------------------------------")
     print("-------- PRUEBA DE CORRIDA ARRIBA Y ABAJO --------")
     print("---------------------------------------------")
-
-    
 
     # try:  
     d_a = float(input("Ingrese el estadistico d: "))
