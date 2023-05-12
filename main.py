@@ -2,6 +2,7 @@ import os
 import sys
 from generators.generadores import *
 from pruebas.pruebas import *
+from pruebas.mensaje import mostrar_lista
 
 
 def limpiar_consola():
@@ -9,24 +10,6 @@ def limpiar_consola():
         os.system('clear')
     elif os.name == 'nt':  # Windows
         os.system('cls')
-
-def mostrar_lista(lista):
-    sys.stdout.write("\033[1;37m")
-    print("Numeros cargados: ")
-    sys.stdout.write("\033[0;37m")
-    print("[",end="")
-    cont = 0
-    for i, elem in enumerate(lista):
-        if cont == 7:
-            print("")
-            cont = 0
-        sys.stdout.write("\033[0;3" + str(i % 7 + 1) + "m")  # Color
-        print(str(elem), end="")
-        if i != len(lista) - 1:
-            print(",",end=" ")
-        cont += 1
-    sys.stdout.write("\033[0;37m")
-    print("]")
 
 def ingreso_manual(listaNros):
     sys.stdout.write("\033[1;34m")

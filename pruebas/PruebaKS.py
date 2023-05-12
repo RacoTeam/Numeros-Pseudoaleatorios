@@ -1,36 +1,50 @@
-from pruebas.mensaje import MostrarMensaje
+from pruebas.mensaje import mostrar_mensaje
+from pruebas.mensaje import mostrar_lista
 
 def PruebaKS(listaNros):
 
     print("---------------------------------------------")
     print("---------------- PRUEBA K-S -----------------")
     print("---------------------------------------------")
+    
+    mostrar_lista(listaNros)
 
-    # try:  
-    d_a = float(input("Ingrese el Estadístico d: "))
+    # try:
+    d_a = float(input("Ingrese el Estadístico d_(a,n): "))
     n = len(listaNros)
+
+    print("---------------------------------------------")
 
     listaOrdenada = sorted(listaNros)
     listaFn = []
 
-    i = 0
-    while(i<n):
-        listaFn.append(i/n)
-        i=i+1
+    i = 1
+    while i <= n:
+        listaFn.append(round(i/n, 3))
+        i = i + 1
+
+    print("Distribución Acumulada = " + str(listaFn))
     
-    j=0
+    print("---------------------------------------------")
+
+    j = 0
     listaResta = []
+    while j < n:
+        listaResta.append(round(listaFn[j] - listaOrdenada[j], 3))
+        j = j + 1
 
-    while(j<n):
-        listaResta.append(listaNros[j] - listaOrdenada[j])
-        j = j + 10
-    
-    maximo  = max(listaResta)
+    print("Estadístico K-S = " + str(listaResta))
 
-    print("¿" + str(round(maximo, 2)) + " < " + str(d_a) + "?")
+    maximo = max(listaResta)
+
+    print("Máximo = " + str(maximo))
+
+    print("---------------------------------------------")
+
+    print("¿" + str(round(maximo, 3)) + " < " + str(d_a) + "?", end="")
 
     if maximo < d_a:
-        MostrarMensaje(True)
+        mostrar_mensaje(True)
     else:
-        MostrarMensaje(False)
+        mostrar_mensaje(False)
 
