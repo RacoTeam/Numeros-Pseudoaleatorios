@@ -1,5 +1,7 @@
 from pruebas.mensaje import mostrar_mensaje
 from pruebas.mensaje import mostrar_lista
+import sys
+import msvcrt
 
 def Frecuencia(listaNros):
 
@@ -8,12 +10,19 @@ def Frecuencia(listaNros):
     print("---------------------------------------------")
 
     mostrar_lista(listaNros)
-    # try:  
-    # Datos
-    x_2a = float(input("Ingrese el Estadístico X_2a: "))
-    n = len(listaNros)
-    x = int(input("Ingrese el número de subintervalos x: "))
-    
+    try:  
+        # Datos
+        x_2a = float(input("Ingrese el Estadístico X_2a: "))
+        n = len(listaNros)
+        x = int(input("Ingrese el número de subintervalos x: "))
+
+    except(ValueError):
+        print("Tienes un error de tipo: ",sys.exc_info()[0])
+        print("Nota: Se debe ingresar un valor de tipo numerico. Revise los datos.")
+        print("\nPresione una tecla para continuar...")
+        msvcrt.getch()
+        return 0
+
     listaIntervalos = []
     listaFrecuenciaObs = []
 
@@ -62,18 +71,18 @@ def Frecuencia(listaNros):
         sumatoria += pow((listaFrecuenciaObs[j] - frecuenciaEsperada),2)
         j = j + 1
         
-    x_2 = (x/n) * sumatoria
+    chicuad = (x/n) * sumatoria
     
     print("X^2 (Chi Cuadrado) = " + str(x/n) + " * " + str(sumatoria))
     
-    print("X^2 (Chi Cuadrado) = " + str(x_2))
+    print("X^2 (Chi Cuadrado) = " + str(chicuad))
     print("---------------------------------------------")
 
     #4. Si |X2|< X2α
 
-    print("¿" + str(round(x_2, 2)) + " < " + str(x_2a) + "?", end="")
+    print("¿" + str(round(chicuad, 2)) + " < " + str(x_2a) + "?", end="")
 
-    if x_2 < x_2a:
+    if chicuad < x_2a:
         mostrar_mensaje(True)
     else:
         mostrar_mensaje(False)

@@ -27,23 +27,26 @@ def mostrar_mensaje(resultado):
             sys.stdout.write("\b" * len(mensaje))
     sys.stdout.write("\033[0;37m")
     
-    print("\nPresione cualquier tecla para continuar...")
+    print("\nPresione una tecla para continuar...")
     msvcrt.getch()
 
 def mostrar_lista(lista = [], mensaje = "Números cargados: "):
-    sys.stdout.write("\033[1;37m")
-    print(mensaje)
-    sys.stdout.write("\033[0;37m")
-    print("[",end="")
-    cont = 0
-    for i, elem in enumerate(lista):
-        if cont == 7:
-            print("")
-            cont = 0
-        sys.stdout.write("\033[0;3" + str(i % 7 + 1) + "m")  # Color
-        print(str(elem), end="")
-        if i != len(lista) - 1:
-            print(",",end=" ")
-        cont += 1
-    sys.stdout.write("\033[0;37m")
-    print("]")
+    if len(lista) == 0 or lista == []:
+        print("No se encuentran números cargados")
+    if len(lista) > 0:
+        sys.stdout.write("\033[1;37m")
+        print(mensaje)
+        sys.stdout.write("\033[0;37m")
+        print("[",end="")
+        cont = 0
+        for i, elem in enumerate(lista):
+            if cont == 7:
+                print("")
+                cont = 0
+            sys.stdout.write("\033[0;3" + str(i % 7 + 1) + "m")  # Color
+            print(str(elem), end="")
+            if i != len(lista) - 1:
+                print(",",end=" ")
+            cont += 1
+        sys.stdout.write("\033[0;37m")
+        print("]")

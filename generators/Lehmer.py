@@ -1,5 +1,6 @@
 import sys
 import math
+import msvcrt
 
 def Lehmer():
 
@@ -32,6 +33,12 @@ def Lehmer():
             kDig = total[0:k]
             ultimos = total[k:len(total)]
             ni = int(ultimos) - int(kDig)
+            if ni < 0: 
+                print("No se puede generar el número u" + str(i+1))
+                print("Se guardará hasta el número u" + str(i))
+                print("\nPresione una tecla para continuar...")
+                msvcrt.getch()
+                return listaNrosAleatorios
             concatenar = "0."+str(ni)
             nroAleatorio = float(concatenar)
             listaNrosAleatorios.append(nroAleatorio)
@@ -40,9 +47,10 @@ def Lehmer():
             print("-------")
             semilla = ni
             i = i+1
-
+        
         return listaNrosAleatorios
             
     except(ValueError):
         print("Tienes un error de tipo: ",sys.exc_info()[0])
         print("Nota: Se debe ingresar un valor de tipo numerico")
+        return []

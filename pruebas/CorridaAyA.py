@@ -1,5 +1,7 @@
 from pruebas.mensaje import mostrar_mensaje
 from pruebas.mensaje import mostrar_lista
+import sys
+import msvcrt
 from itertools import groupby
 
 # Son las 3am esto es un quilombo no pregunten como funciona
@@ -35,10 +37,16 @@ def CorridaAyA(listaNros):
     print("---------------------------------------------")
 
     mostrar_lista(listaNros)
-    # try:
 
     # 1. Generar una muestra de n números pseudo-aleatorios ui
-    est_x = float(input("Ingrese el Estadístico Xa: "))
+    try:
+        est_x = float(input("Ingrese el Estadístico Xa: "))
+    except(ValueError):
+        print("Tienes un error de tipo: ",sys.exc_info()[0])
+        print("Nota: Se debe ingresar un valor de tipo numerico. Revise la entrada.")
+        print("\nPresione una tecla para continuar...")
+        msvcrt.getch()
+        return 0
     n = len(listaNros)
 
     print("---------------------------------------------")

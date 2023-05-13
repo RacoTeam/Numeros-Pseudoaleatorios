@@ -1,5 +1,7 @@
 from pruebas.mensaje import mostrar_mensaje
 from pruebas.mensaje import mostrar_lista
+import msvcrt
+import sys
 
 def PruebaKS(listaNros):
 
@@ -9,8 +11,15 @@ def PruebaKS(listaNros):
     
     mostrar_lista(listaNros)
 
-    # try:
-    d_a = float(input("Ingrese el Estadístico d_(a,n): "))
+    try:
+        d_a = float(input("Ingrese el Estadístico d_(a,n): "))
+    except(ValueError):
+        print("Tienes un error de tipo: ",sys.exc_info()[0])
+        print("Nota: Se debe ingresar un valor de tipo numerico. Revise la entrada.")
+        print("\nPresione una tecla para continuar...")
+        msvcrt.getch()
+        return 0
+    
     n = len(listaNros)
 
     print("---------------------------------------------")
@@ -24,7 +33,6 @@ def PruebaKS(listaNros):
         i = i + 1
 
     print("Distribución Acumulada = " + str(listaFn))
-    
     print("---------------------------------------------")
 
     j = 0
@@ -38,7 +46,6 @@ def PruebaKS(listaNros):
     maximo = max(listaResta)
 
     print("Máximo = " + str(maximo))
-
     print("---------------------------------------------")
 
     print("¿" + str(round(maximo, 3)) + " < " + str(d_a) + "?", end="")

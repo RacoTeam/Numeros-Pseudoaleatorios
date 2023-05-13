@@ -1,5 +1,6 @@
 from pruebas.mensaje import mostrar_mensaje
 from pruebas.mensaje import mostrar_lista
+import sys
 import msvcrt
 
 def crear_matriz(x):
@@ -61,17 +62,31 @@ def Serie(listaNros):
     if (len(listaNros) % 2) != 0:
         print("Error. Cantidad de números generados impares.")
         print("Cargue una cantidad par e intente de nuevo.")
+        print("\nPresione una tecla para continuar...")
         msvcrt.getch()
         return 0
     n = len(listaNros)/2
     
-    est_x2 = float(input("Ingrese el estadístico X2a: "))
-    x = int(input("Ingrese cantidad de filas/columnas X: "))
+    try:
+        est_x2 = float(input("Ingrese el estadístico X2a: "))
+        x = int(input("Ingrese cantidad de filas/columnas X: "))
+
+    except(ValueError):
+        print("Tienes un error de tipo: ",sys.exc_info()[0])
+        print("Nota: Se debe ingresar un valor de tipo numerico. Revise la entrada.")
+        print("\nPresione una tecla para continuar...")
+        msvcrt.getch()
+        return 0
+        
+    print("---------------------------------------------")
     
     # 2. Dividir el cuadrado unitario en x2 celdas. 
     # 𝐅𝐞=𝐧/𝐱^𝟐   Frecuencia esperada en cada una de las celdas
     
-    frecuenciaEsp = n/pow(x, 2)
+    frecuenciaEsp = round(n/pow(x, 2),2)
+
+    print("Frecuencia Esperada = " + str(frecuenciaEsp))
+    print("---------------------------------------------")
     
     # 3. Determinar la frecuencia observada en cada una de las x2 celdas. 
     # Se denota como Fjk (con j,k=1,2,…,x)
@@ -90,7 +105,9 @@ def Serie(listaNros):
     #     for j, frecuencia in enumerate(fila):
     #        print(f"Cuadrante ({i+1}, {j+1}): {frecuencia}")
 
+    print("Frecuencia Observada: ")
     dibujar_matriz(frecuenciaObs)
+    print("---------------------------------------------")
 
     # 4. Calcular el Estadístico Chi Cuadrado
 
@@ -99,15 +116,18 @@ def Serie(listaNros):
 
     # Calculo sumatoria
     chicuad = sumatoria = 0
-    for j, frec in enumerate(frecuenciaObs_lineal):
+    for frec in frecuenciaObs_lineal:
         sumatoria += pow((frec - frecuenciaEsp), 2)
-    
+
     # Calculo chi cuadrado
     chicuad = (pow(x, 2)/n) * sumatoria
 
-    # 5. Si 𝝌2 <𝝌"2α" no se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido
+    print("X^2 (Chi Cuadrado) = " + str(round(pow(x, 2)/n, 3)) + " * " + str(round(sumatoria,3)))
     
-    print("Chi Cuadrado X^2 = " + str(round(chicuad, 2)))
+    print("X^2 (Chi Cuadrado) = " + str(round(chicuad, 3)))
+    print("---------------------------------------------")
+
+    # 5. Si 𝝌2 <𝝌"2α" no se rechaza la hipótesis de que los números provienen de un universo uniformemente distribuido
 
     print("¿" + str(round(chicuad, 2)) + " < " + str(est_x2) + "?", end="")
 
